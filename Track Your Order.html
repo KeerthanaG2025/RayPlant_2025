@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ray Plant Shop</title>
+        <link rel="stylesheet" href="dstyle.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: 'Volkhov', sans-serif;
+                background: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 40px 20px;
+            }
+
+            .tracking-container {
+                max-width: 400px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .logo img {
+                height: 80px;
+            }
+
+            .tracking-icon {
+                font-size: 60px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                margin: 10px 0 20px;
+                font-size: 20px;
+                color: #333;
+            }
+
+            .tab-buttons {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .tab-buttons button {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #1a3b1a;
+                background-color: white;
+                color: #1a3b1a;
+                font-family: 'volkhov';
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .tab-buttons button.active {
+                background-color: #cde3c7;
+                color: #157515;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 12px;
+                margin: 10px 0;
+                border-radius: 6px;
+                border: 1px solid #aaa;
+                font-size: 15px;
+                font-family: 'volkhov';
+            }
+
+            .track-button {
+                width: 100%;
+                background-color: #178a1c;
+                color: #0c0c0c;
+                font-family: 'volkhov';
+                font-size: 16px;
+                padding: 12px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: background-color 0.3s;
+            }
+
+            .track-button:hover {
+                background-color: #0d5f11;
+            }
+
+            @media (max-width: 480px) {
+                .logo-text {
+                    font-size: 26px;
+                }
+
+                .tracking-icon {
+                    font-size: 48px;
+                }
+            }
+            .back-button,
+.next-button {
+  position: fixed;
+  bottom: 0px;
+  padding: 10px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+ 
+}
+
+.back-button {
+  left: 20px;
+}
+
+.next-button {
+  right: 20px;
+}
+
+.back-button:hover,
+.next-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .back-button, .next-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    top: 10px;
+  }
+}
+        </style>
+    </head>
+
+<body>
+
+    <div class="tracking-container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="image/logo ray.png" alt="Ray Logo">
+        </div>
+
+        <!-- Truck Icon -->
+        <div class="tracking-icon">🚚</div>
+        <h2>Track your Order</h2>
+
+        <!-- Toggle Buttons -->
+        <div class="tab-buttons">
+            <button class="tab active" onclick="switchTab('order')">Order ID</button>
+            <button class="tab" onclick="switchTab('invoice')">Invoice ID</button>
+        </div>
+
+        <!-- Inputs -->
+        <div>
+            <input type="text" id="refInput" placeholder="Order ref.. No" />
+            <input type="text" id="billingInput" placeholder="Enter Billing Contact" />
+            <button class="track-button" onclick="trackOrder()">Track</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentTab = 'order';
+
+        function switchTab(type) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            if (type === 'order') {
+                document.getElementById('refInput').placeholder = 'Order ref.. No';
+                tabs[0].classList.add('active');
+            } else {
+                document.getElementById('refInput').placeholder = 'Invoice Number';
+                tabs[1].classList.add('active');
+            }
+
+            currentTab = type;
+        }
+
+        function trackOrder() {
+            const id = document.getElementById('refInput').value.trim();
+
+            if (!id) {
+                alert('Please enter a valid Order or Invoice ID');
+                return;
+            }
+
+            // trcking courier site//
+            if (currentTab === 'order') {
+                // BlueDart 
+                const url = `https://www.bluedart.com/tracking?tracknumbers=${encodeURIComponent(id)}`;
+                window.open(url, '_blank');
+            } else {
+                // Delhivery or placeholder for Invoice
+                const url = `https://www.delhivery.com/track/package/${encodeURIComponent(id)}`;
+                window.open(url, '_blank');
+            }
+        }
+        //next/back button//
+  
+    </script>
+
+</body>
+
+</html>

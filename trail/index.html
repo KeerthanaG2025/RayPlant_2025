@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Plant Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <header class="navbar sticky-top">
+        <div class="logo">
+            <img src="image/logo.png" alt="Ray logo" class="logo-img">
+        </div>
+        <div class="nav-icons">
+            <div class="search-box">
+                <input type="text" placeholder="Search" class="search-input">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            </div>
+            <span class="cart-icon">🛒</span>
+            <span class="user-icon">
+                <ion-icon name="person-outline"></ion-icon>
+            </span>
+        </div>
+    </header>
+</head>
+
+<body>
+
+    <!--2.Hero section bar-->
+
+    <section class="hero">
+        <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" id="navbarToggle">
+                <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+            </button>
+            <div class="collapse navbar-collapse p-3" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#"><strong>Home</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress.html"><strong>Best Seller</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><strong>Deal of the Day</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><strong>Track Your Order</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><strong>Contact</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><strong>About Us</strong></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="image-container">
+            <img src="image/indoor.png" alt="Indoor Plants" class="zoom-image">
+            <div class="overlay-text">Indoor<br> Plants</div>
+        </div>
+    </section>
+
+    <!-- ✅ SMALL INDOOR PLANTS SECTION -->
+    <section class="py-4">
+        <div class="container">
+            <h2 class="mb-4">SMALL INDOOR PLANTS</h2>
+            <div class="row justify-content-center">
+
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 11.png" class="rounded-circle" alt="Plant 1" width="80" height="80">
+                    <p class="image-label">XL Indoor<br> Plant</p>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 12.png" class="rounded-circle" alt="Plant 2" width="80" height="80">
+                    <p class="image-label">Large Indoor<br> Plant</p>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 13.png" class="rounded-circle" alt="Plant 3" width="80" height="80">
+                    <p class="image-label">Medium Indoor<br> Plant</p>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 14.png" class="rounded-circle" alt="Plant 4" width="80" height="80">
+                    <p class="image-label">Small Indoor<br> Plant</p>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 15.png" class="rounded-circle" alt="Plant 5" width="80" height="80">
+                    <p class="image-label">Plant<br> Food</p>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="image/Ellipse 16.png" class="rounded-circle" alt="Plant 5" width="80" height="80">
+                    <p class="image-label">Plant<br> Care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- offer bannertop -->
+    <div class="offer-bannertop d-flex align-items-center justify-content-center">
+        <span class="offer-icon">🏷️</span>
+        <span class="offer-text">Get 12% off on order above @ 1999</span>
+        <button class="close-offer-btn ms-3" aria-label="Close offer banner">&times;</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+        <select name="price" id="filter-price">
+            <option disabled selected>Price</option>
+            <option value="below-150">Below ₹150</option>
+            <option value="below-350">Below ₹350</option>
+            <option value="below-850">Below ₹850</option>
+        </select>
+
+        <select name="size" id="filter-size">
+            <option disabled selected>Size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <select name="sunlight" id="filter-sunlight">
+            <option disabled selected>Sun Light</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="full">Full</option>
+        </select>
+
+        <select name="water" id="filter-water">
+            <option disabled selected>Water Level</option>
+            <option value="spray">Spray</option>
+            <option value="often">Often</option>
+            <option value="daily">Daily</option>
+        </select>
+
+    </div>
+    <!--Products-->
+    <section class="products" id="products">
+        <div class="product-card" data-price="290" data-size="Small" data-sunlight="Low" data-water="Daily">
+            <img src="image/bansai.webp" alt="Lucky Bonsai Plant" width="200" height="200">
+            <p>⭐ 4.8 </p>
+            <h3>Lucky Bonsai Plant</h3>
+            <p>Rs. 290</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="340" data-size="Large" data-sunlight="Medium" data-water="Spray">
+            <img src="image/jade plant.jpg" alt="Lucky Jade Plant" width="200" height="200">
+            <p>⭐ 4.5</p>
+            <h3>Lucky Jade Plant</h3>
+            <p>Rs. 340</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="260" data-size="Large" data-sunlight="Medium" data-water="Often">
+            <img src="image/zamiya.webp" alt="zamiya Green Plant" width="200" height="200">
+            <p>⭐ 4.5</p>
+            <h3>zamiya Green Plant</h3>
+            <p>Rs. 260</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="250" data-size="Medium" data-sunlight="Full" data-water="Daily">
+            <img src="image/spider.webp" alt="Spider Plant" width="200" height="200">
+            <p>⭐ 4.0</p>
+            <h3>Spider Plant</h3>
+            <p>Rs. 250</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="280" data-size="Small" data-sunlight="Low" data-water="Spray">
+            <img src="image/bamboo.webp" alt="LuckyBamboo Plant" width="200" height="200">
+            <p>⭐ 4.5</p>
+            <h3>LuckyBamboo Plant</h3>
+            <p>Rs. 280</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="580" data-size="Large" data-sunlight="Medium" data-water="Daily">
+            <img src="image/aglonima.webp" alt="Aglanoema red Plant" width="200" height="200">
+            <p>⭐ 4.5</p>
+            <h3>Aglanoema red Plant</h3>
+            <p>Rs. 580</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="560" data-size="Medium" data-sunlight="Medium" data-water="Often">
+            <img src="image/snak.webp" alt="Plant" width="200" height="200">
+            <p>⭐ 4.3</p>
+            <h3>Snake Plant</h3>
+            <p>Rs. 560</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="180" data-size="Small" data-sunlight="Low" data-water="Daily">
+            <img src="image/rhio.webp" alt="Rhoeo Plant" width="200" height="200">
+            <p>⭐ 4.3</p>
+            <h3>Rhoeo Plant</h3>
+            <p>Rs. 180</p>
+            <button>Add to Basket</button>
+        </div>
+
+
+    </section>
+    <!-- Promo Section -->
+    <section class="promo">
+        <div class="promo-bg"></div>
+        <div class="promo-content">
+            <h2>Pick Any Four <br>Plants At ₹1249/-</h2>
+            <button class="shop-btn">Shop Now</button>
+        </div>
+    </section>
+    <!--Products-->
+    <section class="products" id="products">
+
+        <div class="product-card" data-price="190" data-size="Medium" data-sunlight="Medium" data-water="Often">
+            <img src="image/oyster.webp" alt="Oyster Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Oyster Plant</h3>
+            <p>Rs. 190</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="290" data-size="Large" data-sunlight="Medium" data-water="Daily">
+            <img src="image/jade plant.jpg" alt="Lucky Jade Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Lucky Jade Plant</h3>
+            <p>Rs. 290</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="720" data-size="Large" data-sunlight="Large" data-water="Often">
+            <img src="image/Peacok pl.webp" alt="Peacock  Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Peacock Plant</h3>
+            <p>Rs. 720</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="390" data-size="Medium" data-sunlight="Medium" data-water="Daily">
+            <img src="image/Peperomia.webp" alt="Peparomia  Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Peparomia Plant</h3>
+            <p>Rs. 390</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="290" data-size="Small" data-sunlight="Low" data-water="Spray">
+            <img src="image/philiyodendro pl.webp" alt="Philiyodendro Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Philiyodendro Plant</h3>
+            <p>Rs. 290</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="690" data-size="Medium" data-sunlight="Medium" data-water="Daily">
+            <img src="image/Syngo pl.webp" alt="Syngonium Plant  Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Syngonium Plant with Self Watering Plant</h3>
+            <p>Rs. 690</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="450" data-size="Small" data-sunlight="Low" data-water="Spray">
+            <img src="image/Fidal fig pl.webp" alt="Fidal fig  Plant" width="200" height="200">
+            <p>⭐ 4.8</p>
+            <h3>Fidal fig Plant</h3>
+            <p>Rs. 450</p>
+            <button>Add to Basket</button>
+        </div>
+        <div class="product-card" data-price="190" data-size="Small" data-sunlight="Low" data-water="Daily">
+            <img src="image/Aralia pl.webp" alt="Aralia Plant">
+            <p>⭐ 4.8</p>
+            <h3>Aralia Plant</h3>
+            <p>Rs. 190</p>
+            <button>Add to Basket</button>
+        </div>
+    </section>
+    <!-- Promo Section -->
+    <section class="promo">
+        <div class="promo-bg"></div>
+        <div class="promo-content">
+            <h2>Pick Any Five <br>Plant At ₹1549/-</h2>
+            <button class="shop-btn">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button>&lt;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>&gt;</button>
+    </div>
+    </section>
+    <!-- FAQs -->
+    <section class="faq">
+        <h3>FAQs</h3>
+        <details>
+            <summary>Where should I place my indoor plants?</summary>
+            <p>Place them near windows with indirect sunlight.</p>
+        </details>
+        <details>
+            <summary>How can I make my indoor plants grow fast ?</summary>
+            <p>Use natural compost and ensure regular watering.</p>
+        </details>
+        <details>
+            <summary>How can I keep my plants bug free?</summary>
+            <p>Use neem oil spray and check regularly.</p>
+        </details>
+        <details>
+            <summary>How often should I water my plants ?</summary>
+            <p>Usually once a week, depending on the plant.</p>
+        </details>
+        <details>
+            <summary>Do indoor plants purify air ?</summary>
+            <p>Yes, certain plants like snake plants and peace lilies do.</p>
+        </details>
+        <!-- offer banner -->
+        <div class="offer-banner">
+            <div class="offer-item">
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon">
+                <span class="brand"></span>
+                <span>Cash on Delivery</span>
+            </div><br>
+
+            <div class="offer-item"><br>
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon"><br>
+                <span class="brand"></span>
+                <span>Free Shipping on order above 300</span><br>
+            </div><br>
+
+            <div class="offer-item">
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon"><br>
+                <span class="brand"></span>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h3>Shope Online Plant At Best Place in India</h3>
+            <div class="footer-columns">
+
+                <div class="footer-column">
+                    <h4>Home</h4>
+                    <ul>
+                        <li>Best Seller</li>
+                        <li>Deal Of The Day</li>
+                        <li>Track My Order</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Category</h4>
+                    <ul>
+                        <li>Xl Indoor Plant</li>
+                        <li>Large Indoor Plant</li>
+                        <li>Medium Indoor Plant</li>
+                        <li>Small Indoor Plant</li>
+                        <li>Plant Food</li>
+                        <li>Plant Care</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>FAQs</li>
+                        <li>Term & Condition</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Get In Touch</h4>
+                    <ul class="contact-info">
+                        <li><ion-icon name="location-outline"></ion-icon> Abc Street, Kerala</li>
+                        <li><ion-icon name="call-outline"></ion-icon> +91 987654321</li>
+                        <li><ion-icon name="mail-outline"></ion-icon> <em>ray@gmail.com</em></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="social-media">
+                <p>Follow Us on</p>
+                <a href="#"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></a>
+            </div>
+        </footer>
+
+
+
+        <div id="toast" class="toast"></div>
+        <script src="script.js"></script>
+</body>
+
+</html>

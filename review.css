@@ -1,0 +1,181 @@
+body {
+  font-family: 'Volkhov', serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #222;
+}
+
+.product-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.product-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.main-image img {
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.highlight-box {
+  background: #d1e7cd;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.cart-btn {
+  background: #178a1c;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.offer-bar {
+  margin-top: 10px;
+  background: #e0f7e9;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.thumbnails img {
+  width: 100px;
+  border-radius: 6px;
+  margin: 10px 10px 0 0;
+  border: 1px solid #ccc;
+}
+
+.guarantee {
+  margin: 30px 0;
+  padding: 20px;
+  background: #e1f0e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.features li span {
+  background: #1a3b1a;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.statement {
+  margin: 40px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.brand-name {
+  font-family: 'Volkhov', cursive;
+  font-weight: bold;
+  color: #1a3b1a;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.reviews {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.review {
+  margin-bottom: 15px;
+}
+
+.footer {
+  background: #f4eac1;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.footer-columns div {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px;
+}
+
+.footer-columns h4 {
+  margin-bottom: 10px;
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-columns ul li a {
+  color: #222;
+  text-decoration: none;
+}
+
+.social a {
+  margin: 0 5px;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}

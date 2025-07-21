@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart + Modal Example</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    .product { text-align: center; padding: 20px; }
+    .product img { width: 150px; height: auto; border-radius: 10px; }
+    .add-btn { background: green; color: white; padding: 10px 20px; border: none; border-radius:5px; cursor: pointer; }
+    .cart-container { max-width: 500px; margin: 20px auto; border: 1px solid #ddd; border-radius:8px; overflow:hidden; }
+    .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; font-size:18px; border-bottom:1px solid #ccc; }
+    .discount-banner { background: #d91c1c; color: white; text-align:center; padding:8px; font-size:14px; }
+    .cart-items { }
+    .cart-item { display:flex; align-items:center; gap:10px; padding:10px; border-bottom:1px solid #eee; }
+    .cart-item img { width:60px; height:60px; border-radius:6px; object-fit:cover; }
+    .item-details { flex:1; font-size:14px; }
+    .item-title { color:#1e2b58; font-weight:bold; text-decoration:underline; }
+    .quantity { margin-top:5px; }
+    .quantity button { padding:2px 6px; cursor:pointer; }
+    .item-price { font-weight:bold; }
+    .total-price { text-align:right; padding:10px; font-size:16px; }
+    .savings { background:#ffe97f; text-align:center; padding:10px; font-size:14px; }
+    .guarantee { text-align:center; padding:10px; font-size:12px; color:#555; }
+    .checkout-btn { width:100%; padding:15px; font-size:18px; color:white; background:#15831f; border:none; cursor:pointer; }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; }
+    .modal-content { background:white; padding:20px; border-radius:8px; width:90%; max-width:350px; text-align:center; }
+    .close-modal { padding:10px 20px; background:#15831f; color:white; border:none; border-radius:6px; cursor:pointer; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <!-- Product Section -->
+  <div class="product">
+    <h2>Lucky Bamboo Plant</h2>
+    <img src="image/bamboo (1).png" alt="Bamboo">
+    <p>Price: Rs.280</p>
+    <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+  </div>
+
+  <!-- Shopping Cart -->
+  <div class="cart-container" id="cart">
+    <div class="cart-header">
+      <span>Shopping Cart (<span id="cart-count">0</span>)</span>
+      <span style="cursor:pointer;" onclick="clearCart()">×</span>
+    </div>
+    <div class="discount-banner">⚙️ Apply Discount At the Check Out</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="total-price">Total Price: Rs.<span id="total">0</span></div>
+    <div class="savings" id="savings" style="display:none;">You Have Saved Rs.75 this order</div>
+    <div class="guarantee">Damage in Transit Guarantee Replacement at no extra cost</div>
+    <button class="checkout-btn" onclick="openModal()">Checkout</button>
+  </div>
+
+  <!-- Modal Popup -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>Checkout Confirmation</h2>
+      <p>Your order is confirmed. Thank you! 🎉</p>
+      <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    let total = 0;
+    const unitPrice = 280;
+    const imageUrl = "image/bamboo (1).png";
+
+    function addToCart() {
+      cartCount++;
+      total += unitPrice;
+      document.getElementById('cart-count').innerText = cartCount;
+      document.getElementById('total').innerText = total;
+
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.innerHTML = `
+        <img src="${imageUrl}">
+        <div class="item-details">
+          <div class="item-title">Lucky Bamboo Plant</div>
+          <div class="quantity">
+            <button onclick="changeQty(this,-1)">-</button>
+            <span>1</span>
+            <button onclick="changeQty(this,1)">+</button>
+            <button onclick="removeItem(this)">🗑️</button>
+          </div>
+        </div>
+        <div class="item-price">Rs.<span>${unitPrice}</span></div>
+      `;
+      document.getElementById('cart-items').appendChild(item);
+      document.getElementById('savings').style.display = 'block';
+    }
+
+    function changeQty(btn, delta) {
+      const span = btn.closest('.quantity').querySelector('span');
+      let qty = parseInt(span.textContent) + delta;
+      if(qty < 1) return;
+      span.textContent = qty;
+      const priceEl = btn.closest('.cart-item').querySelector('.item-price span');
+      priceEl.textContent = unitPrice * qty;
+      updateTotal();
+    }
+
+    function removeItem(btn) {
+      const itemDiv = btn.closest('.cart-item');
+      itemDiv.remove();
+      cartCount--;
+      document.getElementById('cart-count').innerText = cartCount;
+      if(cartCount === 0) document.getElementById('savings').style.display = 'none';
+      updateTotal();
+    }
+
+    function updateTotal() {
+      let sum = 0;
+      document.querySelectorAll('.item-price span').forEach(el => sum += parseInt(el.textContent));
+      document.getElementById('total').innerText = sum;
+    }
+
+    function clearCart() {
+      document.getElementById('cart-items').innerHTML = '';
+      cartCount = 0; total = 0;
+      document.getElementById('cart-count').innerText = 0;
+      document.getElementById('total').innerText = 0;
+      document.getElementById('savings').style.display = 'none';
+    }
+
+    function openModal() {
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

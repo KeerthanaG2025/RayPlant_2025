@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucky Bamboo Product Page</title>
+  <style>
+    body {
+      font-family: 'Volkhov', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .main-img {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .thumbnails img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .right h2 {
+      color: #1e2b58;
+    }
+
+    .highlight-box {
+      background: #d4e8cf;
+      padding: 15px;
+      border-left: 4px solid #3a7844;
+      margin: 15px 0;
+    }
+
+    .price {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .add-to-cart {
+      background: #178a1c;
+      color: white;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .discount {
+      background: #d1f3cc;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .guarantee {
+      margin-top: 20px;
+      background: #d4e8cf;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .steps li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .slogan {
+      font-weight: bold;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .reviews {
+      margin: 40px 0;
+    }
+
+    .review-box {
+      border-left: 4px solid #178a1c;
+      background: #f7f7f7;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #1e502d;
+      color: white;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .footer-banner {
+      background: #f3df94;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 150px;
+      padding: 0 10px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer-column ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      margin: 0 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .product-section {
+        flex-direction: column;
+      }
+
+      .footer-columns {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-column {
+        margin-bottom: 20px;
+      }
+    }
+    .offer-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(236, 198, 101); /* golden background */
+  padding: 12px 20px;
+  font-family: 'Volkhov', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0d2601;
+  border-radius: 10px;
+   text-overflow: repeat;
+   text-align: center;
+}
+
+.offer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.offer-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.brand {
+  font-family: 'Volkhov', ; 
+  font-weight: normal;
+  font-size: 20px;
+}
+@media (max-width: 768px) {
+  .offer-bannertop {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .offer-banner {
+    flex-direction: column;
+    font-size: 16px;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .offer-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+
+  .brand {
+    font-size: 18px;
+    
+
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-bannertop {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .offer-banner {
+    font-size: 15px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+}
+.footer {
+  background-color: #2b6d21;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Volkhov';
+  text-align: center;
+  a{color: white;
+  text-decoration: none;}
+}
+
+.footer h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #fdfdfd;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  text-align: left;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.contact-info ion-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-media p {
+  margin: 0;
+  font-weight: 600;
+  color: #111;
+  font-family: 'Volkhov';
+}
+
+.social-media img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-columns {
+    gap: 25px;
+  }
+  .footer-column {
+    min-width: 140px;
+    flex: 1 1 140px;
+  }
+  .footer h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .footer-column h4 {
+    font-size: 15px;
+  }
+  .footer-column ul li {
+    font-size: 13px;
+  }
+  .social-media img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px;
+  }
+  .footer-columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer-column {
+    min-width: 100%;
+    text-align: center;
+  }
+  .footer-column h4 {
+    font-size: 16px;
+  }
+  .footer-column ul li {
+    font-size: 14px;
+  }
+  .social-media {
+    justify-content: center;
+  }
+  .social-media img {
+    width: 22px;
+    height: 22px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="product-section">
+      <div class="left">
+        <img src="image/bamboo (1).png" alt="Main Plant" class="main-img" id="mainImg" />
+        <div class="thumbnails">
+          <img src="image/Rectangle 89.png" onclick="swapImage(this)" />
+          <img src="image/Rectangle 90.png" onclick="swapImage(this)" />
+          <img src="image/Rectangle 91.png" onclick="swapImage(this)" />
+        </div>
+      </div>
+
+      <div class="right">
+        <h2>Lucky Bamboo Plant with Self Watering Plant</h2>
+        <h4>Highlights</h4>
+        <div class="highlight-box">
+          <p>Bamboo attracts positive energy and good luck</p>
+          <p>If you are looking for good fortune and wealth, place it near your entrance</p>
+          <p>Lifespan varies by treatment: indoors 2-6 years, outdoors shorter</p>
+          <p>Most bamboo prefers full sun</p>
+        </div>
+        <div class="price">Total Price Rs.280</div>
+        <button class="add-to-cart">ADD TO CART</button>
+        <div class="discount">⚙️ Get 12% off on order above ₹1999</div>
+
+        <div class="guarantee">🌱 10-Day Damage Replacement Guarantee – Damaged or Lifeless? We’ll replace it for free!</div>
+
+        <ul class="steps">
+          <li>1️⃣ Open the lid and fill with water</li>
+          <li>2️⃣ The plant drinks only when needed</li>
+          <li>3️⃣ Healthy, long-lived, easy to maintain</li>
+        </ul>
+
+        <div class="slogan">From Sapling to You<br/>Choose Better, Choose <strong>Ray</strong></div>
+      </div>
+    </div>
+
+  <div class="title">Customer Reviews</div>
+    <div class="reviews">
+      <div class="review-box"><strong>Jhon ★★★★★</strong><br/>Areca Palm with Extra Large Self Watering Pot — "Tropical Beauty Made Easy..."</div>
+      <div class="review-box"><strong>Rea ★★★★★</strong><br/>"Refreshing touch and convenient"</div>
+      <div class="review-box"><strong>Ferra ★★★★★</strong><br/>"Low-maintenance, stunning and hassle-free!"</div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    function swapImage(img) {
+      document.getElementById("mainImg").src = img.src;
+    }
+  </script>
+
+
+
+       <!-- offer banner -->
+        <div class="offer-banner">
+            <div class="offer-item">
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon">
+                <span class="brand"></span>
+                <span>Cash on Delivery</span>
+            </div>
+
+            <div class="offer-item"><br>
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon"><br>
+                <span class="brand"></span>
+                <span>Free Shipping on order above 300</span><br>
+            </div>
+
+            <div class="offer-item">
+                <img src="image/logo ray.png" alt="Ray Logo" class="offer-icon"><br>
+                <span class="brand"></span>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h3>Shope Online Plant At Best Place in India</h3>
+            <div class="footer-columns">
+
+                <div class="footer-column">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="Best Seller.html">Best Seller</li>
+                        <li><a href="Deal of the Day.html">Deal Of The Day</a></li>
+                        <li><a href="Track Your Order.html"> Track My Order</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Category</h4>
+                    <ul>
+                        <li>Xl Indoor Plant</li>
+                        <li>Large Indoor Plant</li>
+                        <li>Medium Indoor Plant</li>
+                        <li>Small Indoor Plant</li>
+                        <li>Plant Food</li>
+                        <li>Plant Care</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>FAQs</li>
+                        <li>Term & Condition</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Get In Touch</h4>
+                    <ul class="contact-info">
+                        <li><ion-icon name="location-outline"></ion-icon> Abc Street, Kerala</li>
+                        <li><ion-icon name="call-outline"></ion-icon> +91 987654321</li>
+                        <li><ion-icon name="mail-outline"></ion-icon> <em>ray@gmail.com</em></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="social-media">
+                <p>Follow Us on</p>
+                <a href="https://www.instagram.com/"><img src="https://img.icons8.com/color/48/instagram-new.png"
+                        alt="Instagram"></a>
+                <a href="https://www.facebook.com/"><img src="https://img.icons8.com/color/48/facebook-new.png"
+                        alt="Facebook"></a>
+                <a href="https://www.youtube.com/"><img src="https://img.icons8.com/color/48/youtube-play.png"
+                        alt="YouTube"></a>
+            </div>
+        </footer>
+        
+        <!-- Ionicons for contact icons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        
+</body>
+
+</html>

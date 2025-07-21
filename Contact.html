@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Plant Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <header class="navbar sticky-top">
+        <div class="logo">
+            <img src="image/logo.png" alt="Ray logo" class="logo-img">
+        </div>
+        <div class="nav-icons">
+            <div class="search-box">
+                <input type="text" placeholder="Search" class="search-input">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            </div>
+            <!--cart-->
+            <div class="cart-wrapper">
+                <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+                <span id="cart-count" class="cart-badge">0</span>
+            </div>
+            <span class="user-icon">
+                <ion-icon name="person-outline"></ion-icon>
+            </span>
+        </div>
+    </header>
+</head>
+
+<body>
+<div class="contact-form-container">
+  <h2>Contact Us</h2>
+  <form action="your-server-endpoint" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+<style>
+    .contact-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #f5fdf5;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Volkhov', sans-serif;
+}
+
+.contact-form-container h2 {
+  text-align: center;
+  color: #1b3a1b;
+  margin-bottom: 20px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.contact-form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #178a1c;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form-container button:hover {
+  background-color: #0d5f11;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-form-container {
+    padding: 20px;
+  }
+}
+
+</style>
+<script >
+   
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); 
+      
+      
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      // Simple validation
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Simulate form submission (for testing)
+      alert("Thank you, " + name + "! Your message has been sent.");
+
+      // Optional: Reset the form
+      form.reset();
+    });
+  });
+</script>
+
+     <!-- Footer -->
+        <footer class="footer">
+            <h3>Shope Online Plant At Best Place in India</h3>
+            <div class="footer-columns">
+
+                <div class="footer-column">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="Best Seller.html">Best Seller</li>
+                        <li><a href="Deal of the Day.html">Deal Of The Day</a></li>
+                        <li><a href="Track Your Order.html"> Track My Order</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Category</h4>
+                    <ul>
+                        <li>Xl Indoor Plant</li>
+                        <li>Large Indoor Plant</li>
+                        <li>Medium Indoor Plant</li>
+                        <li>Small Indoor Plant</li>
+                        <li>Plant Food</li>
+                        <li>Plant Care</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>FAQs</li>
+                        <li>Term & Condition</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Get In Touch</h4>
+                    <ul class="contact-info">
+                        <li><ion-icon name="location-outline"></ion-icon> Abc Street, Kerala</li>
+                        <li><ion-icon name="call-outline"></ion-icon> +91 987654321</li>
+                        <li><ion-icon name="mail-outline"></ion-icon> <em>ray@gmail.com</em></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="social-media">
+                <p>Follow Us on</p>
+                <a href="https://www.instagram.com/"><img src="https://img.icons8.com/color/48/instagram-new.png"
+                        alt="Instagram"></a>
+                <a href="https://www.facebook.com/"><img src="https://img.icons8.com/color/48/facebook-new.png"
+                        alt="Facebook"></a>
+                <a href="https://www.youtube.com/"><img src="https://img.icons8.com/color/48/youtube-play.png"
+                        alt="YouTube"></a>
+            </div>
+        </footer>
+        
+        <!-- Ionicons for contact icons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        
+</body>
+
+</html>
