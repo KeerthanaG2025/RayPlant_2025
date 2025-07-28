@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse  p-3" id="navbarMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><strong>Home</strong></a>
+                        <a class="nav-link active" aria-current="page" href="index.html"><strong>Home</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Best Seller.html"><strong>Best Seller</strong></a>
@@ -145,37 +145,40 @@
     </div>
 
     <!-- Filters -->
-    <div class="filters">
-        <select name="Price">
-            <option disabled selected>Price</option>
-            <option value="below 150">Below 150</option>
-            <option value="below 350">Below 350</option>
-            <option value="below 850">Below 850</option>
-        </select>
-        <select name="Size">
-            <option disabled selected>Size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-        </select>
-        <select name="Sun light">
-            <option disabled selected>Sun Light</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="full">Full</option>
-        </select>
-        <select>
-            <option disabled selected>Water Level</option>
-            <option value="spray">Spray</option>
-            <option value="often">Often</option>
-            <option value="daily">Daily</option>
-        </select>
-    </div>
+     <div class="filters">
+  <select id="priceFilter">
+    <option value="">All Prices</option>
+    <option value="150">Below 150</option>
+    <option value="350">Below 350</option>
+    <option value="850">Below 850</option>
+  </select>
+
+  <select id="sizeFilter">
+    <option value="">All Sizes</option>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+
+  <select id="sunlightFilter">
+    <option value="">All Sunlight</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="full">Full</option>
+  </select>
+
+  <select id="waterFilter">
+    <option value="">All Water Levels</option>
+    <option value="spray">Spray</option>
+    <option value="often">Often</option>
+    <option value="daily">Daily</option>
+  </select>
+</div>
     <br>
 
     <!--Products-->
     <section class="products" id="products">
-<div class="product-card">
+<div class="product-card"data-price="280"data-size="large"data-sunlight="full"data-water="spary">
             <div class="image-wrapper">
                 <img src="image/bamboo.webp" alt="LuckyBamboo Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -186,7 +189,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-<div class="product-card">
+<div class="product-card"data-price="580"data-size="small"data-sunlight="low"data-water="daily">
             <div class="image-wrapper">
                 <img src="image/aglonima.webp" alt="Aglanoema red Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -196,7 +199,7 @@
             <p>Rs. 580</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-<div class="product-card">
+<div class="product-card"data-price="560"data-size="large"data-sunlight="full"data-water="spary">
             <div class="image-wrapper">
                 <img src="image/snak.webp" alt="Snake Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -206,7 +209,7 @@
             <p>Rs. 560</p><br>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-<div class="product-card">
+<div class="product-card"data-price="180"data-size="medium"data-sunlight="medium"data-water="often">
             <div class="image-wrapper">
                 <img src="image/rhio.webp" alt="Rhoeo Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -216,7 +219,7 @@
             <p>Rs. 180</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-<div class="product-card">
+<div class="product-card"data-price="390"data-size="large"data-sunlight="full"data-water="spary">
                 <div class="image-wrapper">
                     <img src="image/Peperomia.webp" alt="Peparomia  Plant" width="200" height="200">
                     <div class="offer-tag">35% Off</div>
@@ -227,7 +230,7 @@
                 <button class="add-to-cart">Add to Basket</button>
             </div>
 
-        <div class="product-card">
+        <div class="product-card"data-price="290"data-size="medium"data-sunlight="medium"data-water="often">
             <div class="image-wrapper">
                 <img src="image/bansai.webp" alt="Lucky Bonsai Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -240,7 +243,7 @@
  
 
 
-        <div class="product-card">
+        <div class="product-card"data-price="340"data-size="medium"data-sunlight="medium"data-water="often">
             <div class="image-wrapper">
                 <img src="image/jade plant.jpg" alt="Lucky Jade Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -251,7 +254,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
         
-        <div class="product-card">
+        <div class="product-card"data-price="250"data-size="large"data-sunlight="full"data-water="spary">
             <div class="image-wrapper">
                 <img src="image/spider.webp" alt="Spider Plant" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -261,11 +264,9 @@
             <p>Rs. 250</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-        
-        
-        
-        
+       
     </section>
+    <section id="plantResults" class="products"></section>
     <!-- Promo Section -->
     <section class="promo">
         <div class="promo-bg"></div>

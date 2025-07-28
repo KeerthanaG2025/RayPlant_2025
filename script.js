@@ -2,12 +2,9 @@
 
   
   const plants = [
-    { name: "Aloe Vera", description: "A succulent plant with medicinal properties." },
-    { name: "Snake Plant", description: "Air-purifying plant with upright leaves." },
-    { name: "Spider Plant", description: "Great indoor plant that produces 'spiderettes'." },
-    { name: "Peace Lily", description: "Beautiful white flowers and great air cleaner." },
-    { name: "Fern", description: "Lush green foliage, prefers humidity." },
-    { name: "ZZ Plant", description: "Low-maintenance, hardy indoor plant." }
+   { price: 149, size: "small", sunlight: "low", waterlevel: "spray" },
+  { price: 349, size: "medium", sunlight: "medium", waterlevel: "often" },
+  { price: 849, size: "large", sunlight: "full", waterlevel: "daily" }
   ];
 
   function searchPlants() {
@@ -96,27 +93,54 @@ localStorage.removeItem('hideOfferBanner');
 
 
 //4.fillter //
-const filters = document.querySelectorAll('.filter-select');
 
-    filters.forEach(select => {
-        select.addEventListener('change', () => {
-            const selectedFilters = {};
+document.addEventListener("DOMContentLoaded", () => {
+  const priceFilter = document.getElementById("priceFilter");
+  const sizeFilter = document.getElementById("sizeFilter");
+  const sunlightFilter = document.getElementById("sunlightFilter");
+  const waterFilter = document.getElementById("waterFilter");
+  const cards = document.querySelectorAll(".product-card");
+  const noResults = document.getElementById("noResults");
 
-            filters.forEach(f => {
-                const name = f.name;
-                const value = f.value;
-                if (value && !value.includes('Price') && !value.includes('Size') && !value.includes('Sun Light') && !value.includes('Water Level')) {
-                    selectedFilters[name] = value;
-                }
-            });
+  function applyFilters() {
+    const priceValue = parseInt(priceFilter.value) || Infinity;
+    const sizeValue = sizeFilter.value;
+    const sunlightValue = sunlightFilter.value;
+    const waterValue = waterFilter.value;
 
-            console.clear();
-            console.log('Selected filters:', selectedFilters);
+    let anyVisible = false;
 
-            // TODO: Apply filtering logic here
-            // Example: filterItems(selectedFilters);
-        });
+    cards.forEach(card => {
+      const cardPrice = parseInt(card.dataset.price);
+      const cardSize = card.dataset.size;
+      const cardSunlight = card.dataset.sunlight;
+      const cardWater = card.dataset.water;
+
+      let visible = true;
+
+      if (priceFilter.value && cardPrice >= priceValue) visible = false;
+      if (sizeValue && cardSize !== sizeValue) visible = false;
+      if (sunlightValue && cardSunlight !== sunlightValue) visible = false;
+      if (waterValue && cardWater !== waterValue) visible = false;
+
+      card.style.display = visible ? "block" : "none";
+
+      if (visible) anyVisible = true;
     });
+
+    noResults.style.display = anyVisible ? "none" : "block";
+  }
+
+  // Attach change event
+  [priceFilter, sizeFilter, sunlightFilter, waterFilter].forEach(filter => {
+    filter.addEventListener("change", applyFilters);
+  });
+
+  applyFilters(); // initial run
+});
+
+
+
 
     // Show toast function
     function showToast(message) {
@@ -145,6 +169,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+let cartCount = 0;
+    let total = 0;
+    const unitPrice = 280;
+    
+
+    function addToCart() {
+      cartCount++;
+      total += unitPrice;
+      document.getElementById('cart-count').innerText = cartCount;
+      document.getElementById('total').innerText = total;
+
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.innerHTML = `
+        <img src="${imageUrl}">
+        <div class="item-details">
+          <div class="item-title">Lucky Bamboo Plant</div>
+          <div class="quantity">
+            <button onclick="changeQty(this,-1)">-</button>
+            <span>1</span>
+            <button onclick="changeQty(this,1)">+</button>
+            <button onclick="removeItem(this)">🗑️</button>
+          </div>
+        </div>
+        <div class="item-price">Rs.<span>${unitPrice}</span></div>
+      `;
+      document.getElementById('cart-items').appendChild(item);
+      document.getElementById('savings').style.display = 'block';
+    }
+
+    function changeQty(btn, delta) {
+      const span = btn.closest('.quantity').querySelector('span');
+      let qty = parseInt(span.textContent) + delta;
+      if(qty < 1) return;
+      span.textContent = qty;
+      const priceEl = btn.closest('.cart-item').querySelector('.item-price span');
+      priceEl.textContent = unitPrice * qty;
+      updateTotal();
+    }
+
+    function removeItem(btn) {
+      const itemDiv = btn.closest('.cart-item');
+      itemDiv.remove();
+      cartCount--;
+      document.getElementById('cart-count').innerText = cartCount;
+      if(cartCount === 0) document.getElementById('savings').style.display = 'none';
+      updateTotal();
+    }
+
+    function updateTotal() {
+      let sum = 0;
+      document.querySelectorAll('.item-price span').forEach(el => sum += parseInt(el.textContent));
+      document.getElementById('total').innerText = sum;
+    }
+
+    function clearCart() {
+      document.getElementById('cart-items').innerHTML = '';
+      cartCount = 0; total = 0;
+      document.getElementById('cart-count').innerText = 0;
+      document.getElementById('total').innerText = 0;
+      document.getElementById('savings').style.display = 'none';
+    }
+
+    function openModal() {
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+
+
+
+
+
+
+
+
 //next/back button//
   function goBack() {
     

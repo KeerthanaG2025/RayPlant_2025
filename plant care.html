@@ -149,36 +149,39 @@
 
     <!-- Filters -->
     <div class="filters">
-        <select name="Price">
-            <option disabled selected>Price</option>
-            <option value="below 150">Below 150</option>
-            <option value="below 350">Below 350</option>
-            <option value="below 850">Below 850</option>
-        </select>
-        <select name="Size">
-            <option disabled selected>Size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-        </select>
-        <select name="Sun light">
-            <option disabled selected>Sun Light</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="full">Full</option>
-        </select>
-        <select>
-            <option disabled selected>Water Level</option>
-            <option value="spray">Spray</option>
-            <option value="often">Often</option>
-            <option value="daily">Daily</option>
-        </select>
-    </div>
+  <select id="priceFilter">
+    <option value="">All Prices</option>
+    <option value="150">Below 150</option>
+    <option value="350">Below 350</option>
+    <option value="850">Below 850</option>
+  </select>
+
+  <select id="sizeFilter">
+    <option value="">All Sizes</option>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+
+  <select id="sunlightFilter">
+    <option value="">All Sunlight</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="full">Full</option>
+  </select>
+
+  <select id="waterFilter">
+    <option value="">All Water Levels</option>
+    <option value="spray">Spray</option>
+    <option value="often">Often</option>
+    <option value="daily">Daily</option>
+  </select>
+</div>
     <br>
 
     <!--Products-->
     <section class="products" id="products">
-        <div class="productcard">
+        <div class="productcard"data-price="880"data-size="small"data-sunlight="medium" data-water="daily">
             <div class="image-wrapper">
                 <img src="image/neem cake.jpg" alt="Neem Cake Powder" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -189,7 +192,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="580"data-size="medium"data-sunlight="Low" data-water="Often">
             <div class="image-wrapper">
                 <img src="image/Care kit.jpg" alt="One Plant Care" width="200" height="200">
             </div>
@@ -199,7 +202,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="560"data-size="large"data-sunlight="Full" data-water="spray">
             <div class="image-wrapper">
                 <img src="image/cowdung.jpg" alt="Cow Dung Mannure" width="200" height="200">
             </div>
@@ -209,7 +212,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="180"data-size="small"data-sunlight="medium" data-water="daily">
             <div class="image-wrapper">
                 <img src="image/cocopet.webp" alt="ZZ Black Plant" width="200" height="200">
             </div>
@@ -219,7 +222,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="790"data-size="medium"data-sunlight="Low" data-water="Often">
             <div class="image-wrapper">
                 <img src="image/water globe.jpg" alt="Water Globe" width="200" height="200">     
             </div>
@@ -229,7 +232,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="540"data-size="large"data-sunlight="Full" data-water="spray">
             <div class="image-wrapper">
                 <img src="image/vermi.jpg" alt="Vermicomposit" width="200" height="200">
                 </div>
@@ -239,9 +242,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-
-
-        <div class="productcard">
+        <div class="productcard"data-price="250"data-size="medium"data-sunlight="Low" data-water="Often">
             <div class="image-wrapper">
                 <img src="image/straw.jpg" alt="Plant Straw" width="200" height="200">
             </div>
@@ -251,7 +252,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="productcard">
+        <div class="productcard"data-price="290"data-size="small"data-sunlight="medium" data-water="daily">
             <div class="image-wrapper">
                 <img src="image/water meter.jpg" alt="Black rubbert" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -261,9 +262,8 @@
             <p>Rs.290</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-
-
     </section>
+    <section id="plantResults" class="products"></section>
     <!-- Promo Section -->
     <section class="promo">
         <div class="promo-bg"></div>

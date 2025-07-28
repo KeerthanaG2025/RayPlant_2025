@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse  p-3" id="navbarMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><strong>Home</strong></a>
+                        <a class="nav-link active" aria-current="page" href="index.html"><strong>Home</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Best Seller.html"><strong>Best Seller</strong></a>
@@ -67,30 +67,30 @@
             </div>
             </div>
         </nav>
- <!--toogle button-->
-<div id="heroDetails" class="hero-details" style="display: none;">
-  <h1>Welcome to the Green World 🌱</h1>
-  <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html"><strong>Home</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Best Seller.html"><strong>Best Seller</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Deal of the Day.html"><strong>Deal of the Day</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Track Your Order.html"><strong>Track Your Order</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contact.html"><strong>Contact</strong></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="About Us.html"><strong>About Us</strong></a>
-                    </li>
-                </ul>
-  </div>
+        <!--toogle button-->
+        <div id="heroDetails" class="hero-details" style="display: none;">
+            <h1>Welcome to the Green World 🌱</h1>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html"><strong>Home</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Best Seller.html"><strong>Best Seller</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Deal of the Day.html"><strong>Deal of the Day</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Track Your Order.html"><strong>Track Your Order</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html"><strong>Contact</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About Us.html"><strong>About Us</strong></a>
+                </li>
+            </ul>
+        </div>
 
     </section>
 
@@ -149,26 +149,29 @@
 
     <!-- Filters -->
     <div class="filters">
-        <select name="Price">
-            <option disabled selected>Price</option>
-            <option value="below 150">Below 150</option>
-            <option value="below 350">Below 350</option>
-            <option value="below 850">Below 850</option>
+        <select id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="150">Below 150</option>
+            <option value="350">Below 350</option>
+            <option value="850">Below 850</option>
         </select>
-        <select name="Size">
-            <option disabled selected>Size</option>
+
+        <select id="sizeFilter">
+            <option value="">All Sizes</option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
         </select>
-        <select name="Sun light">
-            <option disabled selected>Sun Light</option>
+
+        <select id="sunlightFilter">
+            <option value="">All Sunlight</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="full">Full</option>
         </select>
-        <select>
-            <option disabled selected>Water Level</option>
+
+        <select id="waterFilter">
+            <option value="">All Water Levels</option>
             <option value="spray">Spray</option>
             <option value="often">Often</option>
             <option value="daily">Daily</option>
@@ -178,7 +181,7 @@
 
     <!--Products-->
     <section class="products" id="products">
-        <div class="product-card" data-price="880"data-size="small"data-sunlight="medium" data-water="daily">
+        <div class="product-card" data-price="880" data-size="small" data-sunlight="medium" data-water="daily">
             <div class="image-wrapper">
                 <img src="image/neem cake.jpg" alt="Neem Cake Powder" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -189,7 +192,7 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="product-card"data-price="560"data-size="medium"data-sunlight="Low" data-water="Often">
+        <div class="product-card" data-price="560" data-size="medium" data-sunlight="Low" data-water="Often">
             <div class="image-wrapper">
                 <img src="image/cowdung.jpg" alt="Cow Dung Mannure" width="200" height="200">
             </div>
@@ -199,29 +202,26 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-        <div class="product-card">
-            <div class="image-wrapper"data-price="180"data-size="large"data-sunlight="Full" data-water="spray">
+        <div class="product-card" data-price="180" data-size="large" data-sunlight="Full" data-water="spray">
+            <div class="image-wrapper">
                 <img src="image/cocopet.webp" alt="ZZ Black Plant" width="200" height="200">
             </div>
             <p>⭐ 4.1</p>
             <h3>Cocopet</h3>
             <p>Rs. 180</p>
             <button class="add-to-cart">Add to Basket</button>
-        </div>       
+        </div>
 
-        <div class="product-card"data-price="540"data-size="small"data-sunlight="medium" data-water="daily">
+        <div class="product-card" data-price="540" data-size="small" data-sunlight="medium" data-water="daily">
             <div class="image-wrapper">
                 <img src="image/vermi.jpg" alt="Vermicomposit" width="200" height="200">
-                </div>
+            </div>
             <p>⭐ 4.2 </p>
             <h3>Vermicomposit</h3>
             <p>Rs. 540</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-
-
-
-        <div class="product-card"data-price="290"data-size="large"data-sunlight="Full" data-water="spray">
+        <div class="product-card" data-price="290" data-size="large" data-sunlight="Full" data-water="spray">
             <div class="image-wrapper">
                 <img src="image/pot soli.jpg" alt="Pot Soil" width="200" height="200">
             </div>
@@ -231,17 +231,17 @@
             <button class="add-to-cart">Add to Basket</button>
         </div>
 
-          <div class="product-card"data-price="540"data-size="large"data-sunlight="Full" data-water="spray">
+        <div class="product-card" data-price="540" data-size="large" data-sunlight="Full" data-water="spray">
             <div class="image-wrapper">
                 <img src="image/vermi.jpg" alt="Vermicomposit" width="200" height="200">
-                </div>
+            </div>
             <p>⭐ 4.2 </p>
             <h3>Vermicomposit 3KG</h3>
             <p>Rs. 540</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-        
-<div class="product-card"data-price="880"data-size="medium"data-sunlight="Low" data-water="Often">
+
+        <div class="product-card" data-price="880" data-size="medium" data-sunlight="Low" data-water="Often">
             <div class="image-wrapper">
                 <img src="image/neem cake.jpg" alt="Neem Cake Powder" width="200" height="200">
                 <div class="offer-tag">35% Off</div>
@@ -251,9 +251,8 @@
             <p>Rs. 880</p>
             <button class="add-to-cart">Add to Basket</button>
         </div>
-
-
     </section>
+    <section id="plantResults" class="products"></section>
     <!-- Promo Section -->
     <section class="promo">
         <div class="promo-bg"></div>
@@ -350,7 +349,7 @@
                     alt="YouTube"></a>
         </div>
     </footer>
-    
+
     <!-- Ionicons for contact icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
